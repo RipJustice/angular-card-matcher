@@ -1,6 +1,24 @@
+@import '../../../assets/_vars.scss';
+
 .card-directions {
   padding-bottom:30px;
 }
 .cards-container {
   gap: 10px;
+}
+
+@media(max-width: $large-mobile) {
+  .card-directions {
+    h2 {
+      font-size: $mid-font2;
+    }
+  }
+}
+
+@media(max-width: $small-mobile) {
+  .card-directions {
+    h2 {
+      font-size: $small-font;
+    }
+  }
 }

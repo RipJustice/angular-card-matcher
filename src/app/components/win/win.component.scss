@@ -1,12 +1,34 @@
-.win-container {
-  height: calc(100vh - 222px);
-  h1 {
-    font-size: 3em;
+@import '../../../assets/_vars.scss';
+
+:host ::ng-deep {
+  .win-container {
+    height: calc(100vh - 222px);
+    h1 {
+      font-size: $large-font;
+    }
+  }
+  .p-button-label {
+    font-size: $large-font2;
+  }
+  @media(max-width: $large-mobile) {
+    .p-button-label {
+      font-size: $mid-font;
+    }
+    .win-container {
+      h1 {
+        font-size: $large-font2;
+      }
+    }
+  }
+  @media(max-width: $small-mobile) {
+    .p-button-label {
+      font-size: $small-font;
+    }
+    .win-container {
+      h1 {
+        font-size: $mid-font;
+      }
+    }
   }
 }
 
-:host ::ng-deep {
-  .p-button-label {
-    font-size: 2em;
-  }
-}

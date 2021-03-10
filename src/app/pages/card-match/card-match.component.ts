@@ -11,9 +11,9 @@ import { CardService } from '../../services/card-service.service';
 export class CardMatchComponent implements OnInit, OnDestroy {
 
   private subscriptions = new Array<Subscription>();
+  private matchCards = new Array<ICard>();
+  private allMatches: number;
   cardData: ICard[];
-  matchCards = new Array<ICard>();
-  allMatches: number;
   win: boolean;
 
   constructor(private cSvc: CardService) { }
@@ -26,7 +26,7 @@ export class CardMatchComponent implements OnInit, OnDestroy {
     this.subscriptions.forEach((s) => s.unsubscribe());
   }
 
-  generateCards(): void {
+  private generateCards(): void {
     this.subscriptions.push(
       this.cSvc.getCardsData().subscribe({
         next: (data: ICard[]) => {
@@ -58,7 +58,7 @@ export class CardMatchComponent implements OnInit, OnDestroy {
     }
   }
 
-  confirmMatch(): void {
+  private confirmMatch(): void {
     setTimeout(() => {
       const card1 = this.matchCards[0];
       const card2 = this.matchCards[1];

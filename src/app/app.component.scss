@@ -27,3 +27,13 @@
     }
   }
 }
+
+@media(max-width: $small-mobile) {
+  .cm-app {
+    .cm-header {
+      h1 {
+        font-size: $mid-font;
+      }
+    }
+  }
+}
