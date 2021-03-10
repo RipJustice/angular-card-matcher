@@ -13,8 +13,8 @@ export class CardMatchComponent implements OnInit, OnDestroy {
   private subscriptions = new Array<Subscription>();
   cardData: ICard[];
   matchCards = new Array<ICard>();
-  allMatches = 0;
-  win = false;
+  allMatches: number;
+  win: boolean;
 
   constructor(private cSvc: CardService) { }
 
@@ -32,6 +32,8 @@ export class CardMatchComponent implements OnInit, OnDestroy {
         next: (data: ICard[]) => {
           this.cardData = data;
           this.cardData.sort(() => Math.random() - 0.5).map(d => d.status = 'initial');
+          this.allMatches = 0;
+          this.win = false;
         },
         error: (error) => {
           // Just having this catch here in case this ever switches to using a service with an actual api call
@@ -74,7 +76,5 @@ export class CardMatchComponent implements OnInit, OnDestroy {
 
   doOver(): void {
     this.generateCards();
-    this.allMatches = 0;
-    this.win = false;
   }
 }
