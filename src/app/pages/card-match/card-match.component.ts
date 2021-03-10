@@ -31,7 +31,6 @@ export class CardMatchComponent implements OnInit, OnDestroy {
       this.cSvc.getCardsData().subscribe({
         next: (data: ICard[]) => {
           this.cardData = data;
-          // this.cardData.map(d => d.status = 'initial');
           this.cardData.sort(() => Math.random() - 0.5).map(d => d.status = 'initial');
         },
         error: (error) => {
