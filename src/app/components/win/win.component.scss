@@ -1,4 +1,5 @@
-@import '../../../assets/_vars.scss';
+@import '../../../assets/_vars';
+@import '../../../assets/mixins';
 
 :host ::ng-deep {
   .win-container {
@@ -7,10 +8,12 @@
       font-size: $large-font;
     }
   }
+
   .p-button-label {
     font-size: $large-font2;
   }
-  @media(max-width: $large-mobile) {
+
+  @include mobile-medium {
     .p-button-label {
       font-size: $mid-font;
     }
@@ -20,7 +23,8 @@
       }
     }
   }
-  @media(max-width: $small-mobile) {
+
+  @include mobile-small {
     .p-button-label {
       font-size: $small-font;
     }

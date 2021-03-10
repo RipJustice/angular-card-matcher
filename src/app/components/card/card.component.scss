@@ -1,12 +1,5 @@
-@import '../../../assets/_vars.scss';
-
-@mixin card-faces {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
+@import '../../../assets/_vars';
+@import '../../../assets/mixins';
 
 .cm-card {
   border-radius: 10px;

@@ -1,4 +1,5 @@
-@import '../assets/_vars.scss';
+@import '../assets/_vars';
+@import '../assets/mixins';
 
 .cm-app {
   .cm-header {
@@ -28,7 +29,7 @@
   }
 }
 
-@media(max-width: $small-mobile) {
+@include mobile-small {
   .cm-app {
     .cm-header {
       h1 {
