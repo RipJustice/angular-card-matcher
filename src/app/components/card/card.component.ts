@@ -10,7 +10,7 @@ export class CardComponent implements OnInit {
 
   @Input() card: ICard;
 
-  @Output() cardSelected: EventEmitter<string> = new EventEmitter<string>();
+  @Output() cardSelected = new EventEmitter();
 
   constructor() { }
 

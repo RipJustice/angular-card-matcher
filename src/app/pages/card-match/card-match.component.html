@@ -1,12 +1,14 @@
 <section>
-  <div>
-    <ng-container *ngIf="!win; else finished">
-      <div class="cards-container p-grid p-jc-center p-nogutter">
-        <app-card *ngFor="let card of cardData; let i=index" [card]="card" (cardSelected)="cardFlip(i)"></app-card>
-      </div>
-    </ng-container>
-    <ng-template #finished>
-      <p>You completed the game!</p>
-    </ng-template>
-  </div>
+  <ng-container *ngIf="!win; else finished">
+    <div class="card-directions p-text-center">
+      <h2>Welcome to the Card Matching Game! Flip any two cards to see if they match. If they match they'll disappear.
+        If they don't they'll return to being face down and you'll have to try again. Match them all and YOU WIN!</h2>
+    </div>
+    <div class="cards-container p-grid p-jc-center p-nogutter">
+      <app-card *ngFor="let card of cardData; let i=index" [card]="card" (cardSelected)="cardFlip(i)"></app-card>
+    </div>
+  </ng-container>
+  <ng-template #finished>
+    <app-win (replay)="doOver()"></app-win>
+  </ng-template>
 </section>

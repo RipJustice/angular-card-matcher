@@ -1,0 +1,12 @@
+.win-container {
+  height: calc(100vh - 222px);
+  h1 {
+    font-size: 3em;
+  }
+}
+
+:host ::ng-deep {
+  .p-button-label {
+    font-size: 2em;
+  }
+}

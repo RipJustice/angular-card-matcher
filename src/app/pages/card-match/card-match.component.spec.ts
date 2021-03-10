@@ -1,6 +1,8 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CardMatchComponent } from './card-match.component';
+import { CardComponent } from '../../components/card/card.component';
+import { WinComponent } from '../../components/win/win.component';
 
 describe('CardMatchComponent', () => {
   let component: CardMatchComponent;
@@ -8,7 +10,7 @@ describe('CardMatchComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CardMatchComponent ],
+      declarations: [ CardMatchComponent, CardComponent, WinComponent ],
       imports: [ HttpClientTestingModule ]
     })
     .compileComponents();

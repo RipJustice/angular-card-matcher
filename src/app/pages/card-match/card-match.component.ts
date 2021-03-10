@@ -29,9 +29,10 @@ export class CardMatchComponent implements OnInit, OnDestroy {
   generateCards(): void {
     this.subscriptions.push(
       this.cSvc.getCardsData().subscribe({
-        next: (data) => {
+        next: (data: ICard[]) => {
           this.cardData = data;
-          this.cardData.sort(() => Math.random() - 0.5);
+          // this.cardData.map(d => d.status = 'initial');
+          this.cardData.sort(() => Math.random() - 0.5).map(d => d.status = 'initial');
         },
         error: (error) => {
           // Just having this catch here in case this ever switches to using a service with an actual api call
@@ -72,4 +73,9 @@ export class CardMatchComponent implements OnInit, OnDestroy {
     }, 1000);
   }
 
+  doOver(): void {
+    this.generateCards();
+    this.allMatches = 0;
+    this.win = false;
+  }
 }
