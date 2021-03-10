@@ -32,7 +32,6 @@ export class CardMatchComponent implements OnInit, OnDestroy {
       this.cSvc.getCardsData().subscribe({
         next: (data) => {
           this.cardData = data;
-          this.cardData.push(...data);
           this.cardShuffle(this.cardData);
         },
         error: (error) => {
@@ -43,8 +42,14 @@ export class CardMatchComponent implements OnInit, OnDestroy {
     );
   }
 
-  cardFlip(i) {
-    console.log(i);
+  cardFlip(i: number): void {
+    const singleCard = this.cardData[i];
+
+    if (singleCard.status === 'initial') {
+      singleCard.status = 'flipped';
+    } else if (singleCard.status === 'flipped') {
+      singleCard.status = 'initial';
+    }
   }
 
 }
