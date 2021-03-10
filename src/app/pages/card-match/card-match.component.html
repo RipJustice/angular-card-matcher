@@ -1,11 +1,11 @@
 <section>
   <div>
-    <ng-container>
+    <ng-container *ngIf="!win; else finished">
       <div class="cards-container p-grid p-jc-center p-nogutter">
         <app-card *ngFor="let card of cardData; let i=index" [card]="card" (cardSelected)="cardFlip(i)"></app-card>
       </div>
     </ng-container>
-    <ng-template finished>
+    <ng-template #finished>
       <p>You completed the game!</p>
     </ng-template>
   </div>

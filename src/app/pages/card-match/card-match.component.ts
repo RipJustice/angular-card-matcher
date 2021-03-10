@@ -12,6 +12,9 @@ export class CardMatchComponent implements OnInit, OnDestroy {
 
   private subscriptions = new Array<Subscription>();
   cardData: ICard[];
+  matchCards = new Array<ICard>();
+  allMatches = 0;
+  win = false;
 
   constructor(private cSvc: CardService) { }
 
@@ -23,16 +26,12 @@ export class CardMatchComponent implements OnInit, OnDestroy {
     this.subscriptions.forEach((s) => s.unsubscribe());
   }
 
-  cardShuffle(cards: ICard[]): ICard[] {
-    return cards.sort(() => Math.random() - 0.5);
-  }
-
   generateCards(): void {
     this.subscriptions.push(
       this.cSvc.getCardsData().subscribe({
         next: (data) => {
           this.cardData = data;
-          this.cardShuffle(this.cardData);
+          this.cardData.sort(() => Math.random() - 0.5);
         },
         error: (error) => {
           // Just having this catch here in case this ever switches to using a service with an actual api call
@@ -44,12 +43,33 @@ export class CardMatchComponent implements OnInit, OnDestroy {
 
   cardFlip(i: number): void {
     const singleCard = this.cardData[i];
-
-    if (singleCard.status === 'initial') {
+    if (singleCard.status === 'initial' && this.matchCards.length < 2) {
       singleCard.status = 'flipped';
+      this.matchCards.push(singleCard);
+
+      if (this.matchCards.length === 2) {
+        this.confirmMatch();
+      }
     } else if (singleCard.status === 'flipped') {
       singleCard.status = 'initial';
+      this.matchCards = [];
     }
+  }
+
+  confirmMatch(): void {
+    setTimeout(() => {
+      const card1 = this.matchCards[0];
+      const card2 = this.matchCards[1];
+      this.cardData.map(c => {
+        if ( c.index === card1.index || c.index === card2.index) {
+          card1.cardNum === card2.cardNum ? (c.status = 'match', this.allMatches++) : c.status = 'initial';
+        }
+      });
+      this.matchCards = [];
+      if (this.allMatches === this.cardData.length) {
+        this.win = true;
+      }
+    }, 1000);
   }
 
 }

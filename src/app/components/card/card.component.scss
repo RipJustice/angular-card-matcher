@@ -14,8 +14,9 @@
   width: 139px;
   perspective: 600px;
   position: relative;
-  transition: transform 0.8s;
+  transition: transform 1s, opacity 1s;
   transform-style: preserve-3d;
+  cursor: pointer;
   &.initial {
     transform: none;
   }
