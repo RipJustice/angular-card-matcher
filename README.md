@@ -8,7 +8,7 @@ This project is meant to be a demo for the moment. However, it has been structur
 
 Future additons that may be added when I have more time:
 
-  - Some better styling. The current styling is fairly quick and dirty. A decent logo and a few hours time working out a better design along with a better look and feel for the cards could go a long way.
+  - Some better styling. The current styling is fairly quick and dirty. It's responsive to a large degree but not fully and has not been tested in all browsers though it is perfectly fine for anything Chromium-based. Better responsive design along with additional browser testing, a decent logo and a few hours time working out a better design along with a better look and feel for the cards could go a long way.
 
   - A working api to return data instead of the mock data that is currently being served up as an observable by the included service
 
