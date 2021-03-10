@@ -38,6 +38,7 @@
     @include card-faces;
     padding: 10px;
     transform: rotateY(180deg);
+    background: $light;
     .card-circle {
       border-radius: 50%;
       width: 75px;
