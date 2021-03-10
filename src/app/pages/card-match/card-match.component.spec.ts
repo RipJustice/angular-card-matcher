@@ -1,5 +1,5 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { CardMatchComponent } from './card-match.component';
 
 describe('CardMatchComponent', () => {
@@ -8,7 +8,8 @@ describe('CardMatchComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CardMatchComponent ]
+      declarations: [ CardMatchComponent ],
+      imports: [ HttpClientTestingModule ]
     })
     .compileComponents();
   });

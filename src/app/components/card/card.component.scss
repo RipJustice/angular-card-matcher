@@ -10,8 +10,8 @@
 
 .cm-card {
   border-radius: 10px;
-  height: 203px;
-  width: 141px;
+  height: 196px;
+  width: 139px;
   perspective: 600px;
   position: relative;
   transition: transform 0.8s;
@@ -30,7 +30,7 @@
   .card-back {
     @include card-faces;
     img {
-      width: 95%;
+      width: 90%;
     }
   }
   .card-front {
